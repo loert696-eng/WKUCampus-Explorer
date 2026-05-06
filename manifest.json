@@ -1,0 +1,21 @@
+{
+  "name": "Wonkwang Campus Map",
+  "short_name": "WKU Map",
+  "description": "Interactive map for Wonkwang University Campus.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#0056b3",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/ko/a/a2/%EC%9B%90%EA%B4%91%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/ko/a/a2/%EC%9B%90%EA%B4%91%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonkwang University Campus Map</title>
+    <!-- PWA Setup -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0056b3">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WKU Map">
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/ko/a/a2/%EC%9B%90%EA%B4%91%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Intro Screen -->
+    <div id="intro-screen">
+        <div class="intro-content">
+            <img src="https://upload.wikimedia.org/wikipedia/ko/a/a2/%EC%9B%90%EA%B4%91%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png" alt="WKU Logo" class="intro-logo">
+            <h1 class="intro-title">WKU Campus Map</h1>
+            <p class="intro-subtitle">스마트한 원광대학교 캠퍼스 가이드</p>
+            <button id="enter-app-btn" class="enter-btn">시작하기 (Enter)</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <h1 id="app-title">Wonkwang Campus Map</h1>
+            <div class="controls">
+                <select id="language-selector">
+                    <option value="ko">한국어</option>
+                    <option value="en" selected>English</option>
+                    <option value="uz">O'zbek</option>
+                    <option value="ur">اردو</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Map Container -->
+        <main class="map-container">
+            <div id="map"></div>
+        </main>
+
+        <!-- Info Panel (Hidden by default) -->
+        <div id="info-panel" class="glass-panel hidden">
+            <button id="close-panel" class="close-btn">&times;</button>
+            <h2 id="building-title">Building Name</h2>
+            <div class="building-meta">
+                <span id="building-number" class="badge outline">No. 1</span>
+            </div>
+            <div class="building-hours-container">
+                <span id="building-hours" class="hours-text">🕒 Hours go here...</span>
+            </div>
+            <p id="building-desc" class="desc-text">Description goes here...</p>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+</body>
+</html>
